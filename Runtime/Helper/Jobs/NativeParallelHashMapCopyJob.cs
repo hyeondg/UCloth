@@ -11,7 +11,7 @@ namespace UCloth
     /// </summary>
     [BurstCompile]
     internal struct NativeParallelHashMapCopyJob<TKey, TValue> : IJobParallelForBatch
-        where TKey : struct, IEquatable<TKey> where TValue : struct
+        where TKey : unmanaged, IEquatable<TKey> where TValue : unmanaged
     {
         [ReadOnly]
         [DeallocateOnJobCompletion]

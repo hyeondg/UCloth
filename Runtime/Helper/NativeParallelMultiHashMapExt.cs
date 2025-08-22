@@ -14,7 +14,7 @@ namespace UCloth
         /// <returns> True if given <paramref name="key"/> contains <paramref name="value"/>. </returns>
         [BurstCompatible]
         internal static bool KeyContainsValue<TKey, TValue>(this NativeParallelMultiHashMap<TKey, TValue> hashmap, TKey key, TValue value)
-            where TKey : struct, IEquatable<TKey> where TValue : struct, IEquatable<TValue>
+            where TKey : unmanaged, IEquatable<TKey> where TValue : unmanaged, IEquatable<TValue>
         {
             // Checks if contains any value
             if (!hashmap.TryGetFirstValue(key, out TValue outVal, out var iterator))
